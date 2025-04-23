@@ -1,5 +1,6 @@
 package com.demo.appointments.application;
 
+import com.demo.appointments.application.mapper.AppointmentMapper;
 import com.demo.appointments.domain.dto.AppointmentDto;
 import com.demo.appointments.domain.port.IAppointment;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +14,13 @@ import java.util.List;
 public class AppointmentByDate {
 
     private final IAppointment appointment;
+    
+    private final AppointmentMapper mapper;
 
     public List<AppointmentDto> execute(String date){
-        return appointment.getAppointments(LocalDate.parse(date));
+    	List<AppointmentDto> list = appointment.getAppointments(LocalDate.parse(date)).stream()
+        		.map(mapper::toDto).toList();
+    	
+    	return list;
     }
 }

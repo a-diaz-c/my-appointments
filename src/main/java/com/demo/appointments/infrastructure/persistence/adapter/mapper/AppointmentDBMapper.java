@@ -1,24 +1,24 @@
 package com.demo.appointments.infrastructure.persistence.adapter.mapper;
 
-import com.demo.appointments.domain.dto.AppointmentDto;
+import com.demo.appointments.domain.model.Appointment;
 import com.demo.appointments.infrastructure.persistence.adapter.entity.AppointmentEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AppointmentDBMapper {
 
-    public AppointmentDto toDto(AppointmentEntity appointment){
+    public Appointment toDomain(AppointmentEntity appointment){
 
         if(appointment == null){
             return null;
         }
 
-        return new AppointmentDto(appointment.getId(), appointment.getCustomerName(),
+        return new Appointment(appointment.getId(), appointment.getCustomerName(),
                 appointment.getServiceType(), appointment.getAppointmentDate(), appointment.getAppointmentTime(),
                 appointment.getStatus());
     }
 
-    public AppointmentEntity toDboCreate(AppointmentDto appointmentDto){
+    public AppointmentEntity toDboCreate(Appointment appointmentDto){
         if(appointmentDto == null){
             return null;
         }

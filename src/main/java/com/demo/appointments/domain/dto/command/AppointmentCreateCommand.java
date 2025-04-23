@@ -1,18 +1,23 @@
-package com.demo.appointments.domain.dto;
-
-import lombok.*;
+package com.demo.appointments.domain.dto.command;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class AppointmentDto implements Serializable {
-
-    /**
+@Data
+public class AppointmentCreateCommand implements Serializable{
+	
+	/**
      * @serial serialVersionUID
      */
     private static final long serialVersionUID = 1L;
@@ -25,4 +30,5 @@ public class AppointmentDto implements Serializable {
     private LocalTime appointmentTime;
 
     private String status = "scheduled";
+
 }

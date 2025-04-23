@@ -1,13 +1,13 @@
 package com.demo.appointments.domain.port;
 
-import com.demo.appointments.domain.dto.AppointmentDto;
+import com.demo.appointments.domain.model.Appointment;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface IAppointment {
 
-    public List<AppointmentDto> getAppointments(LocalDate date);
+    public List<Appointment> getAppointments(LocalDate date);
 
-    public AppointmentDto createAppointment(AppointmentDto appointment);
+    public Appointment createAppointment(Appointment appointment);
 }

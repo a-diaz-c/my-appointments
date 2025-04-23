@@ -1,6 +1,6 @@
 package com.demo.appointments.infrastructure.persistence.adapter.jpa;
 
-import com.demo.appointments.domain.dto.AppointmentDto;
+import com.demo.appointments.domain.model.Appointment;
 import com.demo.appointments.domain.port.IAppointment;
 import com.demo.appointments.infrastructure.persistence.adapter.entity.AppointmentEntity;
 import com.demo.appointments.infrastructure.persistence.adapter.mapper.AppointmentDBMapper;
@@ -19,14 +19,15 @@ public class AppointmentJpaAdapter implements IAppointment {
     private final AppointmentDBMapper mapper;
 
     @Override
-    public List<AppointmentDto> getAppointments(LocalDate date) {
+    public List<Appointment> getAppointments(LocalDate date) {
         List<AppointmentEntity> appointments = appointmentRepository.findByAppointmentDate(date);
-        return appointments.stream().map(mapper::toDto).toList();
+        List<Appointment> list =  appointments.stream().map(mapper::toDomain).toList();
+        return list;
     }
 
     @Override
-    public AppointmentDto createAppointment(AppointmentDto appointment) {
+    public Appointment createAppointment(Appointment appointment) {
         var appointmentCreate = mapper.toDboCreate(appointment);
-        return mapper.toDto(appointmentRepository.save(appointmentCreate));
+        return mapper.toDomain(appointmentRepository.save(appointmentCreate));
     }
 }
