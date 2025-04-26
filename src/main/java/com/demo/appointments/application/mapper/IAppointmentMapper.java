@@ -1,7 +1,7 @@
 package com.demo.appointments.application.mapper;
 
 import com.demo.appointments.domain.dto.AppointmentDto;
-import com.demo.appointments.domain.model.Appointment;
+import com.demo.appointments.domain.model.appointment.Appointment;
 
 
 public interface IAppointmentMapper {

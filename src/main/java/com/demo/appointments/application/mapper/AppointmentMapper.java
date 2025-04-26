@@ -3,7 +3,7 @@ package com.demo.appointments.application.mapper;
 import org.springframework.stereotype.Component;
 
 import com.demo.appointments.domain.dto.AppointmentDto;
-import com.demo.appointments.domain.model.Appointment;
+import com.demo.appointments.domain.model.appointment.Appointment;
 
 @Component
 public class AppointmentMapper {

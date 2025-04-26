@@ -28,4 +28,11 @@ public class AppointmentEntity {
 
     @Column(nullable = false)
     private String status = "scheduled";
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+    
+    @Column(nullable = false)
+    private Integer durationInMinutes;
 }

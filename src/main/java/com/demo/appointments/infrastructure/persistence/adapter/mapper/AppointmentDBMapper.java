@@ -1,7 +1,9 @@
 package com.demo.appointments.infrastructure.persistence.adapter.mapper;
 
-import com.demo.appointments.domain.model.Appointment;
+import com.demo.appointments.domain.model.appointment.Appointment;
 import com.demo.appointments.infrastructure.persistence.adapter.entity.AppointmentEntity;
+import com.demo.appointments.infrastructure.persistence.adapter.entity.UserEntity;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -25,6 +27,8 @@ public class AppointmentDBMapper {
 
         return new AppointmentEntity(null, appointmentDto.getCustomerName(), appointmentDto.getServiceType(),
                 appointmentDto.getAppointmentDate(), appointmentDto.getAppointmentTime(),
-                appointmentDto.getStatus());
+                appointmentDto.getStatus(), 
+                new UserEntity(appointmentDto.getUser().getId(), appointmentDto.getUser().getName(), appointmentDto.getUser().getEmail(), null),
+                appointmentDto.getDuration());
     }
 }

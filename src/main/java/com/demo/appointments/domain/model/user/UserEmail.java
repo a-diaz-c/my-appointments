@@ -1,11 +1,11 @@
-package com.demo.appointments.domain.model;
+package com.demo.appointments.domain.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class AppointmentServiceType {
+public class UserEmail {
 	
 	private String value;
 

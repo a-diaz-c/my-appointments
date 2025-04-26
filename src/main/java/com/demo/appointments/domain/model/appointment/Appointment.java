@@ -1,9 +1,10 @@
-package com.demo.appointments.domain.model;
+package com.demo.appointments.domain.model.appointment;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 import com.demo.appointments.domain.dto.command.AppointmentCreateCommand;
+import com.demo.appointments.domain.model.user.User;
 
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,8 @@ public class Appointment {
 	private AppointmentServiceType serviceType;
 	private AppointmentDate appointmentDate;
 	private AppointmentTime appointmentTime;
+	private User user;
+	private AppointmentDuration appointmentDuration;
 
 	private AppointmentStatus status;
 
@@ -53,12 +56,22 @@ public class Appointment {
 		return status.getValue();
 	}
 	
-    public Appointment toDomain(AppointmentCreateCommand appointment ) {
+	public User getUser() {
+		return user;
+	}
+	
+	public Integer getDuration() {
+		return appointmentDuration.getValue();
+	}
+	
+    public Appointment toDomain(AppointmentCreateCommand appointment, User user) {
     	this.customerName = new AppointmentCustomerName(appointment.getCustomerName());
     	this.serviceType = new AppointmentServiceType(appointment.getServiceType());
     	this.appointmentDate = new AppointmentDate(appointment.getAppointmentDate());
     	this.appointmentTime = new AppointmentTime(appointment.getAppointmentTime());
     	this.status = new AppointmentStatus(appointment.getStatus());
+    	this.user = user;
+    	this.appointmentDuration = new AppointmentDuration();
     
     	return this;
     }

@@ -1,4 +1,4 @@
-package com.demo.appointments.domain.model;
+package com.demo.appointments.domain.model.appointment;
 
 import java.time.LocalDate;
 
