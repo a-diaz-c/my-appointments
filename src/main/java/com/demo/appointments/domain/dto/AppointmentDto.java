@@ -24,5 +24,5 @@ public class AppointmentDto implements Serializable {
     private LocalDate appointmentDate;
     private LocalTime appointmentTime;
 
-    private String status = "scheduled";
+    private String status;
 }

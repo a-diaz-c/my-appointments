@@ -69,7 +69,7 @@ public class Appointment {
     	this.serviceType = new AppointmentServiceType(appointment.getServiceType());
     	this.appointmentDate = new AppointmentDate(appointment.getAppointmentDate());
     	this.appointmentTime = new AppointmentTime(appointment.getAppointmentTime());
-    	this.status = new AppointmentStatus(appointment.getStatus());
+    	this.status = new AppointmentStatus(appointment.getStatus().name());
     	this.user = user;
     	this.appointmentDuration = new AppointmentDuration();
     

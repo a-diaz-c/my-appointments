@@ -39,7 +39,7 @@ public class AppointmentCreateCommand implements Serializable{
     @NotNull(message = "La hora es obligatoria.")
     private LocalTime appointmentTime;
 
-    private String status = "scheduled";
+    private AppointmentStatusType status;
     
     @NotNull(message = "El ID del usuario es obligatorio.")
     private Long userId;
