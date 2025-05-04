@@ -2,6 +2,7 @@ package com.demo.appointments.application;
 
 import com.demo.appointments.application.mapper.AppointmentMapper;
 import com.demo.appointments.domain.dto.AppointmentDto;
+import com.demo.appointments.domain.dto.AppointmentStatusType;
 import com.demo.appointments.domain.dto.command.AppointmentCreateCommand;
 import com.demo.appointments.domain.exception.UserNotFoundException;
 import com.demo.appointments.domain.model.appointment.Appointment;
@@ -51,7 +52,7 @@ public class AppointmentCreate {
     	LocalTime start = time;
         LocalTime end = start.plusMinutes(30);
         
-        List<Appointment> existingAppointments = appointmentPort.getAppointments(date);
+        List<Appointment> existingAppointments = appointmentPort.getAppointments(date, AppointmentStatusType.scheduled.name());
         
         existingAppointments.stream().forEach(appointment -> {
         	LocalTime existingStart = appointment.getAppointmentTime();

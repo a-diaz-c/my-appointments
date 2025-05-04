@@ -9,7 +9,7 @@ import com.demo.appointments.domain.model.user.User;
 
 public interface IAppointment {
 
-    public List<Appointment> getAppointments(LocalDate date);
+    public List<Appointment> getAppointments(LocalDate date, String status);
 
     public Appointment createAppointment(Appointment appointment);
     

@@ -23,8 +23,8 @@ public class AppointmentJpaAdapter implements IAppointment {
     private final UserDBMapper userMapper;
 
     @Override
-    public List<Appointment> getAppointments(LocalDate date) {
-        List<AppointmentEntity> appointments = appointmentRepository.findByAppointmentDate(date);
+    public List<Appointment> getAppointments(LocalDate date, String status) {
+        List<AppointmentEntity> appointments = appointmentRepository.findByAppointmentDateAndStatus(date, status);
         List<Appointment> list =  appointments.stream().map(mapper::toDomain).toList();
         return list;
     }
